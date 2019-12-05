@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Simple HTML form</title>
+    </head>
+
+    <body>
+        <form id="order_form">
+            Your Name:<br>
+            <input type="text" name="customer_name">
+            <br>
+            <br>
+            Address:<br>
+            <input type="text" name="address">
+            <br><br>
+            Phone:<br>
+            <input type="tel" name="phone">
+            <br><br>
+            Payment type:<br>
+            <select name="payment_type" form="order_form">
+                <option value="cash">Cash</option>
+                <option value="card">Card</option>
+            </select>
+            <br><br>
+            Number of people:<br>
+            <input type="number" name="number_of_people" min="1">
+            <br><br>
+            Promo code:<br>
+            <input type="text" name="promo_code">
+            <br><br>
+            Additional comments:<br>
+            <!-- <input type="text" name="comments"> -->
+            <textarea name="comments" rows="4" cols="30"></textarea>
+            <br>
+            <br>
+        </form>
+    </body>
+</html>
