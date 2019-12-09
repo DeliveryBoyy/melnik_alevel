@@ -1,29 +1,34 @@
 CREATE TABLE movies(
-    movie_id integer NOT NULL PRIMARY KEY,
+    id integer NOT NULL PRIMARY KEY,
     name text NOT NULL,
     release_date date NOT NULL,
     budget integer NOT NULL
 );
 
 CREATE TABLE directors(
-    director_id integer NOT NULL PRIMARY KEY,
+    id integer NOT NULL PRIMARY KEY,
     name text NOT NULL,
     born_date date NOT NULL,
     total_movies smallint NOT NULL
 );
 
 CREATE TABLE actors(
-    actor_id integer NOT NULL PRIMARY KEY,
+    id integer NOT NULL PRIMARY KEY,
     name text NOT NULL,
     born_date date NOT NULL,
     total_movies smallint NOT NULL
 );
 
-CREATE TABLE movies_directors_actors(
+CREATE TABLE directors_movies(
     movie_id integer,
-    FOREIGN KEY (movie_id) REFERENCES movies(movie_id),
+    FOREIGN KEY (movie_id) REFERENCES movies(id),
     director_id integer,
-    FOREIGN KEY(director_id) REFERENCES directors(director_id),
+    FOREIGN KEY(director_id) REFERENCES directors(id),
+);
+
+CREATE TABLE actors_movies(
+    movie_id integer,
+    FOREIGN KEY (movie_id) REFERENCES movies(id),
     actor_id integer,
-    FOREIGN KEY (actor_id) REFERENCES actors(actor_id)
-)
+    FOREIGN KEY (actor_id) REFERENCES actors(id)
+);
