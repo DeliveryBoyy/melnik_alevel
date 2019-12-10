@@ -23,7 +23,7 @@ CREATE TABLE directors_movies(
     movie_id integer,
     FOREIGN KEY (movie_id) REFERENCES movies(id),
     director_id integer,
-    FOREIGN KEY(director_id) REFERENCES directors(id),
+    FOREIGN KEY(director_id) REFERENCES directors(id)
 );
 
 CREATE TABLE actors_movies(
