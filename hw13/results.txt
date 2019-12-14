@@ -1,0 +1,25 @@
+movies_2019=# SELECT * FROM movies NATURAL JOIN directors;
+ id |      name      | release_date |  budget   | first_name | last_name  | born_date  | total_movies
+----+----------------+--------------+-----------+------------+------------+------------+--------------
+  1 | The Irishman   | 2019-11-01   | 159000000 | Martin     | Scorsese   | 1942-11-17 |           27
+  2 | Joker          | 2019-10-04   |  70000000 | Todd       | Phillip    | 1970-12-20 |           14
+  3 | It Chapter Two | 2019-09-06   |  79000000 | Andy       | Muschietti | 1973-08-26 |            5
+(3 rows)
+
+
+movies_2019=# SELECT * FROM movies NATURAL JOIN directors;
+ id |      name      | release_date |  budget   | first_name | last_name  | born_date  | total_movies
+----+----------------+--------------+-----------+------------+------------+------------+--------------
+  1 | The Irishman   | 2019-11-01   | 159000000 | Martin     | Scorsese   | 1942-11-17 |           27
+  2 | Joker          | 2019-10-04   |  70000000 | Todd       | Phillip    | 1970-12-20 |           14
+  3 | It Chapter Two | 2019-09-06   |  79000000 | Andy       | Muschietti | 1973-08-26 |            5
+(3 rows)
+
+
+movies_2019=# SELECT * FROM movies WHERE budget > 50000000 GROUP BY id HAVING release_date <= '2019-11-01';
+ id |      name      | release_date |  budget
+----+----------------+--------------+-----------
+  3 | It Chapter Two | 2019-09-06   |  79000000
+  2 | Joker          | 2019-10-04   |  70000000
+  1 | The Irishman   | 2019-11-01   | 159000000
+(3 rows)
