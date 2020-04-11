@@ -18,8 +18,10 @@ class Product:
 
 
 class Cart:
-    # create a Cart object
-    # cart_contents is a list that contains lists with Product objects and their quantities
+    """
+    create a Cart object
+    cart_contents is a list that contains lists with Product objects and their quantities
+    """
     def __init__(self, cart_contents):
         self.cart_contents = cart_contents
 
@@ -40,8 +42,11 @@ class Cart:
         return True
 
 
-# function that runs the code for testing:
+#
 def run():
+    """
+    function that runs the code for testing:
+    """
     # create 3 Product objects
     bread = Product('Bread', 'Food', 10.23, 'item')
     toilet_paper = Product('Toilet paper', 'Household products', 10.10, 'item')
