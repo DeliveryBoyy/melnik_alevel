@@ -61,6 +61,6 @@ def run():
     result = programmer <= recruiter
     print(result)
     print(recruiter.hired_this_month)
-    print("Stack: {}\nClosed this month: {}".format(programmer.stack, programmer.closed_this_month))
+    print("Stack: {}.\nClosed this month: {}.".format(", ".join(programmer.stack), programmer.closed_this_month))
 
 run()
