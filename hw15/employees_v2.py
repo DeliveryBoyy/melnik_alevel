@@ -1,5 +1,6 @@
 from datetime import date, timedelta
 
+
 class Employee:
     def __init__(self, first_name, last_name, email, phone_number, salary_rate_daily):
         self.first_name = first_name
@@ -8,15 +9,20 @@ class Employee:
         self.phone_number = phone_number
         self.salary_rate_daily = salary_rate_daily
 
+    # represent the working process of an Employee
+    # the result is finalized by the work() method of child classes
     def work(self):
         return "I come to the office."
 
+    # check the size of the salary payment for a set number of days
     def check_salary(self, days_worked):
         return self.salary_rate_daily * days_worked
 
+    # string representation of the employee like "Position: FirstName LastName"
     def __str__(self):
         return "{0}: {1} {2}".format(self.__class__.__name__, self.first_name, self.last_name)
 
+    # comparison of Employees by their daily salary rate
     def __eq__(self, other):
         return self.salary_rate_daily == other.salary_rate_daily
 
@@ -42,11 +48,12 @@ class Programmer(Employee):
         self.tech_stack = tech_stack
         self.closed_this_month = closed_this_month
 
+    # finalizes the representation of the working process based on the Employees position
     def work(self):
         return "{0} {1}".format(super().work()[:-1], "and start programming.")
 
+    # create an "alpha" programmer object by combining salaries, tech stacks and number of issues closed this month
     def __add__(self, other):
-        # create an "alpha" programmer object by combining salaries, tech stacks and number of issues closed this month
         alpha_programmer = Programmer(
             'Alpha', 'Programmer', 'alpha@beta.com', '+380696661337',
             self.salary_rate_daily + other.salary_rate_daily,
@@ -58,8 +65,8 @@ class Programmer(Employee):
     # don't include saturdays/sundays
     def current_salary(self):
         iter_date = date(date.today().year, date.today().month, 1)
-        current_salary = self.salary_rate_daily
-        while iter_date != date.today():
+        current_salary = 0
+        while iter_date <= date.today():
             if iter_date.weekday() < 5:
                 current_salary += self.salary_rate_daily
             iter_date = date(iter_date.year, iter_date.month, iter_date.day + 1)
@@ -91,6 +98,7 @@ class Recruiter(Employee):
         self.hired_this_month = hired_this_month
 
     def work(self):
+        # finalizes the representation of the working process based on the Employees position
         return "{0} {1}".format(super().work()[:-1], "and start hiring.")
 
 
@@ -101,7 +109,7 @@ def run():
     programmer2 = Programmer('Guy', 'Fieri', 'guy@fieri.com', '+3806798766990', 130, ['JS', 'HTML', 'CSS', 'PSQL'], 13)
     recruiter = Recruiter('Anna', 'Bee', 'anemailaddress@email.com', '+380956667777', 100, 3)
 
-    # various test for the existing methods:
+    # various tests for existing methods:
     # print out a string indicating that the employee is working
     print(programmer.work())
     # print out the string representation of this Employee object
@@ -116,6 +124,7 @@ def run():
     # compare two programmers by the numbers of the technologies they can work with
     # this one returns True
     print(programmer >= programmer2)
+    # calculate total wages for an Employee for the current month
     print(programmer.current_salary())
 
 
