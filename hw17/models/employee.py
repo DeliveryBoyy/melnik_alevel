@@ -61,7 +61,6 @@ class Employee:
         # So, pass the validation.
         except FileNotFoundError:
             pass
-        print("Email is validated!")
 
     """
     Comparisons of Employees by their daily salary rate.
