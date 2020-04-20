@@ -104,7 +104,7 @@ class Recruiter(Employee):
 
 def run():
     # create two Programmer objects and a single Recruiter object, populate their property values
-    programmer = Programmer('Dmitriy', 'Miller', 'melniknc@gmail.com', '+380956666969', 200,
+    programmer = Programmer('Dmitriy','Miller', 'melniknc@gmail.com', '+380956666969', 200,
                             ['Python', 'Django', 'PSQL', 'Linux', 'Bash'], 17)
     programmer2 = Programmer('Guy', 'Fieri', 'guy@fieri.com', '+3806798766990', 130, ['JS', 'HTML', 'CSS', 'PSQL'], 13)
     recruiter = Recruiter('Anna', 'Bee', 'anemailaddress@email.com', '+380956667777', 100, 3)
